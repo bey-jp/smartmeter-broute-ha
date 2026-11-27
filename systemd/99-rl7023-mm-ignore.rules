@@ -1,0 +1,4 @@
+# /etc/udev/rules.d/99-rl7023-mm-ignore.rules
+# RL7023 Stick-D/IPS（FTDI FT230X）を ModemManager に触らせない
+# ほかに FT230X を使う機器があるなら ATTRS{serial}=="..." を足して絞る
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", ENV{ID_MM_DEVICE_IGNORE}="1"

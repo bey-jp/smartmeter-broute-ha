@@ -1,0 +1,18 @@
+# /etc/systemd/system/smartmeter.service
+# User とパス（/home/pi/smartmeter-broute-ha）は自分の環境に合わせて書き換える
+[Unit]
+Description=Smart meter B-route (RL7023) to MQTT for Home Assistant
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/smartmeter-broute-ha
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/usr/bin/python3 -P /home/pi/smartmeter-broute-ha/smartmeter.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

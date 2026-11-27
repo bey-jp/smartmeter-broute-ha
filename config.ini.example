@@ -1,0 +1,19 @@
+# ~/.config/smartmeter/config.ini にコピーして使う（chmod 600）。リポジトリに入れない。
+[broute]
+# 電力会社（一般送配電事業者）から届いた Bルート認証 ID（32桁）とパスワード（12桁）
+id =
+password =
+
+[mqtt]
+# Home Assistant の Mosquitto ブローカー
+host = 127.0.0.1
+port = 1883
+username = smartmeter
+password =
+
+[device]
+# RL7023 のシリアルポート。ls /dev/serial/by-id/ で FTDI の名前を確認して書く
+serial = /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_XXXXXXXX-if00-port0
+# 瞬時電力・電流を読む間隔（秒）と積算電力量を読む間隔（秒）
+interval = 15
+energy_interval = 60
